@@ -1,104 +1,58 @@
-# Copy Trading Bot - Kotak Neo API
+# Copy Trading Bot
 
-A sophisticated copy trading bot that automatically replicates a trader's signals using the **Kotak Neo Trading API**. This bot monitors signals from master traders and executes synchronized trades across follower accounts with advanced risk management.
+A GitHub-ready starter project for a Kotak Neo based copy-trading workflow.
 
-## 🎯 Features
+## Overview
 
-✅ **Signal Replication**
-- Real-time signal monitoring from master trader accounts
-- Automatic order execution on follower accounts
-- Support for multiple master traders and followers
+This repository currently includes:
+- a Python backend starter in [backend](backend)
+- a smoke-testable startup entry point in [backend/main.py](backend/main.py)
+- an environment template in [backend/.env.example](backend/.env.example)
+- CI setup in [.github/workflows/ci.yml](.github/workflows/ci.yml)
 
-✅ **Risk Management**
-- Position sizing based on follower account size
-- Maximum drawdown limits
-- Daily loss limits
-- Trailing stop-loss
-- Profit targets
-
-✅ **Advanced Trading**
-- Market orders, Limit orders, Stop-loss orders
-- Option trading (CE/PE)
-- Partial exit support
-- Multi-leg strategies
-
-✅ **Monitoring & Alerts**
-- Real-time trade monitoring
-- Email/SMS notifications
-- Telegram alerts
-- Live dashboard
-- Trade history logging
-
-✅ **Modern Dashboard**
-- React 18 + TypeScript frontend
-- Real-time P&L charts
-- Live performance metrics
-- Responsive design
-
-## 📁 Project Structure
-
-```
-copy-trading-bot/
-├── backend/                 # Python Flask API
-│   ├── config/
-│   ├── core/
-│   ├── models/
-│   ├── utils/
-│   ├── database/
-│   ├── main.py
-│   ├── requirements.txt
-│   └── .env.example
-├── frontend/                # React Dashboard
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── App.tsx
-│   │   └── main.tsx
-│   ├── package.json
-│   ├── vite.config.ts
-│   └── index.html
-└── LICENSE
-```
-
-## 🚀 Quick Start
+## Quick start
 
 ### Backend
 
 ```bash
 cd backend
+python -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env
-# Edit .env with your Kotak Neo credentials
-python main.py
+python main.py --once
 ```
 
-### Frontend
+### Run tests
 
 ```bash
-cd frontend
-npm install
-npm run dev
+cd backend
+python -m pytest -q
 ```
 
-Access dashboard: `http://localhost:5173`
+## Repository structure
 
-## ⚙️ Configuration
+```text
+.
+├── backend/              # Backend application and config
+│   ├── main.py
+│   ├── requirements.txt
+│   ├── README.md
+│   └── .env.example
+├── .github/workflows/    # CI automation
+└── LICENSE
+```
 
-Edit `.env` files with:
-- Kotak Neo API credentials
-- Master trader settings
-- Risk management parameters
-- Notification channels
+## Notes
 
-## 📖 Documentation
+- The current backend is a working startup / smoke-test scaffold.
+- Real trading logic and broker integration can be added on top of this foundation.
+- Keep your real credentials in the local `.env` file and do not commit secrets.
 
-- [Backend Setup](./backend/README.md)
-- [Frontend Setup](./frontend/README.md)
+## Disclaimer
 
-## ⚠️ Disclaimer
+This project is for learning and development use only. Trading involves financial risk. Test carefully before using real funds.
 
-This is a trading bot for educational purposes. Trading involves substantial risk. Always test thoroughly before live trading.
+## License
 
-## 📄 License
-
-MIT License - See LICENSE file
+MIT License — see [LICENSE](LICENSE).
