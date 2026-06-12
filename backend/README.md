@@ -1,14 +1,23 @@
 # Copy Trading Bot - Backend
 
-Python backend for Kotak Neo API copy trading bot.
+Python backend for the Kotak Neo API copy trading bot.
 
-## 🚀 Installation
+## 🚀 Local setup
 
 ```bash
 cd backend
+python -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env
-python main.py
+python main.py --once
+```
+
+## 🧪 Testing
+
+```bash
+cd backend
+python -m pytest -q
 ```
 
 ## 📝 Configuration
@@ -52,8 +61,5 @@ backend/
 
 ## 📦 Dependencies
 
-- neo-api-client - Kotak Neo API
-- pandas, numpy - Data processing
-- python-dotenv - Environment config
-- pydantic - Data validation
-- loguru - Logging
+The current requirements file installs the test/runtime stack needed for the backend entry point and smoke tests.
+If you later add the real Kotak SDK, you can enable the package in requirements.txt when its distribution name is confirmed.
